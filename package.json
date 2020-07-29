@@ -1,8 +1,8 @@
 {
-  "name": "places",
+  "name": "personnal-website",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Simon",
+  "author": "Simon Patrat",
   "license": "MIT",
   "scripts": {
     "dev": "npm run pre-build && next",

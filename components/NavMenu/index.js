@@ -4,10 +4,10 @@ import Link from "next/link";
 import Logo from "../../static/img/logo-large.svg";
 
 const NavMenu = ({ theme, setTheme }) => {
-  const handleClickOnChangeColorFilterButton = useCallback(event => {
+  const handleClickOnChangeColorFilterButton = useCallback((event) => {
     document.documentElement.classList.toggle("black-and-white");
   });
-  const handleClickOnToggleCategoriesMenuButton = useCallback(event => {
+  const handleClickOnToggleCategoriesMenuButton = useCallback((event) => {
     console.log("TODO: handle categories menu toggling.");
     document.documentElement.classList.toggle("show-filters");
   });
@@ -19,7 +19,10 @@ const NavMenu = ({ theme, setTheme }) => {
           <nav className="navmenu">
             <Link href="/">
               <a className="navmenu__title">
-                <h1 className="" aria-label="Places">
+                <h1
+                  className=""
+                  aria-label="Simon Patrat - Frontend Web Developer"
+                >
                   <Logo className="site-logo" with="120px" height="60px" />
                 </h1>
               </a>
@@ -29,7 +32,7 @@ const NavMenu = ({ theme, setTheme }) => {
                 <button
                   type="button"
                   className="button navmenu__button navmenu__button--change-theme"
-                  onClick={event =>
+                  onClick={(event) =>
                     setTheme(theme === "dark" ? "light" : "dark")
                   }
                   aria-label={`${theme === "dark" ? "Light" : "Dark"} mode`}
