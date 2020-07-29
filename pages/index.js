@@ -1,11 +1,9 @@
 import Head from "next/head";
-import Link from 'next/link';
 import { Component } from "react";
 import orderBy from "lodash/orderBy";
 import classnames from "classnames";
-import slugify from 'slugify';
+import slugify from "slugify";
 
-import Grid from "../components/Grid";
 import content from "../content/home.md";
 
 export default class Home extends Component {
@@ -17,42 +15,7 @@ export default class Home extends Component {
     };
   }
 
-  handleCategoryFilterSelection = (category) => {
-    const { categories } = this.state;
-
-    if (!category) {
-      return;
-    }
-    if (category === "*") {
-      this.setState({
-        categories: categories.map((cat) => {
-          cat.attributes.selected = false;
-          return cat;
-        }),
-      });
-    }
-
-    const updatedCategories = [...categories].map((cat, index) => {
-      if (cat.attributes.name === category) {
-        cat.attributes.selected = !cat.attributes.selected;
-      }
-      return cat;
-    });
-
-    this.setState({
-      categories: updatedCategories,
-    });
-  };
-
-  handleCategoryFilterButtonClick = (event, categoryName) => {
-    this.handleCategoryFilterSelection(categoryName);
-  };
-
-  componentDidMount() {
-    document.documentElement.style.setProperty("--background-color", "");
-    document.documentElement.style.setProperty("--text-color", "");
-    document.documentElement.style.setProperty("--navmenu-text-color", "");
-  }
+  componentDidMount() {}
 
   loadMorePosts = () => {
     console.log("TODO: Load more posts with offset");
@@ -91,57 +54,6 @@ export default class Home extends Component {
 
     const orderedPosts = orderBy(filteredPosts, ["attributes.date"], ["desc"]);
 
-    const categoriesMenu = categories && categories.length > 0 && (
-      <ul className="categories-filters-menu">
-        <>
-          <li
-            className="categories-filters-menu__item"
-            key={`category-filters-menu__item#ALL`}
-          >
-            <button
-              type="button"
-              className="categories-filters-button"
-              onClick={(event) =>
-                this.handleCategoryFilterButtonClick(event, "*")
-              }
-            >
-              All
-            </button>
-          </li>
-          {categories.map((category, index) => {
-            const { slug, attributes } = category;
-            const { name, description, selected } = attributes;
-            const categoriesMenuItemClassNames = classnames(
-              "categories-filters-menu__item",
-              {
-                selected,
-              }
-            );
-
-            return (
-              <li
-                className={categoriesMenuItemClassNames}
-                key={`category-filters-menu__item#${index}#${slug}`}
-              >
-{/*                 <Link href={`/categories/${slugify(slug, { lower: true })}`}>
-                  <a>{name}</a>
-                </Link> */}
-                <button
-                  type="button"
-                  className="categories-filters-button"
-                  onClick={(event) =>
-                    this.handleCategoryFilterButtonClick(event, name)
-                  }
-                >
-                  {name}
-                </button>
-              </li>
-            );
-          })}
-        </>
-      </ul>
-    );
-
     const shouldDisplayPostsList = orderedPosts && orderedPosts.length > 0;
     return (
       <>
@@ -151,11 +63,7 @@ export default class Home extends Component {
         </Head>
 
         <article>
-          <div className="page__header">
-            <div className="container">
-              <div className="row">{categoriesMenu}</div>
-            </div>
-          </div>
+          <div className="page__header"></div>
 
           <div className="page__content">
             <div className="container">
@@ -166,25 +74,7 @@ export default class Home extends Component {
           </div>
           <div className="container">
             <div className="row">
-              {shouldDisplayPostsList && (
-                <Grid
-                  list={orderedPosts}
-                  useImagesLoaded={true}
-                  withColorPalette
-                  debuggModeInCards={false}
-                  cols={{
-                    480: 1,
-                    768: 2,
-                    1024: 2,
-                    1366: 3,
-                    1440: 3,
-                    1680: 3,
-                    1880: 3,
-                    1920: 4,
-                    99999: 4,
-                  }}
-                ></Grid>
-              )}
+              {shouldDisplayPostsList && JSON.stringify(orderedPosts, null, 2)}
             </div>
           </div>
         </article>
@@ -220,34 +110,8 @@ async function loadPosts(nbOfPosts = 0) {
       posts[postSlug] = post;
     });
   }
-  function importAllPostAdditionalImageData(r) {
-    const dataFilesToLoad = nbOfPosts > 0 ? r.keys().slice(0, nbOfPosts) : r.keys();
-    dataFilesToLoad.forEach((key) => {
-      const jsonFile = r(key);
-      const { colors } = jsonFile;
-      const palette = colors.map(c => c[0]).slice(0, 5);
-      const dominante = palette[0];
-      const imageColorsInfo = {
-        color: dominante,
-        palette,
-      };
-
-      // console.log({jsonFile});
-      const postSlug = key.substring(2, key.length - 10);
-      // console.log({postSlug})
-       posts[postSlug] = {
-        ...posts[postSlug],
-        featuredImageData: {
-          ...jsonFile,
-          imageColors: imageColorsInfo,
-        },
-      };
-    });
-  }
 
   await importAllPosts(require.context("../content/posts", true, /\.md$/));
-  await importAllPostAdditionalImageData(require.context("../content/posts", true, /\.json$/));
-
 
   return posts;
 }
@@ -266,7 +130,9 @@ async function loadCategories() {
     });
   }
 
-  await importAllCategories(require.context("../content/categories", true, /\.md$/));
+  await importAllCategories(
+    require.context("../content/categories", true, /\.md$/)
+  );
 
   return categories;
 }

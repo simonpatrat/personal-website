@@ -65,17 +65,12 @@ a {
 
 @import "./modules/normalize";
 @import "./modules/layout";
-@import "./modules/color-palette";
 @import "./modules/NavMenu";
 @import "./modules/site-logo";
 @import "./modules/post";
 @import "./modules/PostsList";
 @import "./modules/button";
-@import "./modules/LoadingBar";
-@import "./modules/categories-filters-menu";
 @import "./modules/Loading";
-@import "./modules/map";
-@import "../components/Grid/styles/grid";
 
 .container {
   width: 95%;
@@ -86,13 +81,6 @@ a {
   @media (min-width: 1024px) and (max-width: 1280px) {
     max-width: 1180px;
   }
-
-  /*
-
-  @media (min-width: 1440px) {
-    max-width: 1280px;
-  }
-*/
 
   @media (min-width: 1920px) {
     max-width: 1680px;
