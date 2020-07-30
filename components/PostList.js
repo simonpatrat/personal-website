@@ -3,7 +3,6 @@ import Link from "next/link";
 export default function PostList({ posts }) {
   if (posts === "undefined") return null;
 
-  console.log({ posts });
   return (
     <div>
       {!posts && <div>No posts!</div>}

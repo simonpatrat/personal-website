@@ -1,15 +1,18 @@
-import matter from "gray-matter";
 import Layout from "components/Layout";
 import PostList from "components/PostList";
-import { stringifyDates } from "lib/utils/stringifyDates";
+import ProjectList from "components/ProjectList";
 
-const Index = ({ title, description, posts, ...props }) => {
+import { getPosts } from "lib/utils/posts";
+import { getProjects } from "lib/utils/projects";
+
+const Index = ({ title, description, posts, projects, ...props }) => {
   return (
     <Layout pageTitle={title}>
       <h1 className="title">Welcome to my blog!</h1>
       <p className="description">{description}</p>
       <main>
         <PostList posts={posts} />
+        <ProjectList projects={projects} />
       </main>
     </Layout>
   );
@@ -20,36 +23,14 @@ export default Index;
 export async function getStaticProps() {
   const configData = await import(`../siteconfig.json`);
 
-  const posts = ((context) => {
-    const keys = context.keys();
-    const values = keys.map(context);
+  const posts = getPosts();
 
-    const data = keys.map((key, index) => {
-      let slug = key.replace(/^.*[\\\/]/, "").slice(0, -3);
-      const value = values[index];
-
-      const result = matter(value.default);
-      const resultDataWithDatesStringified = JSON.stringify(
-        result.data,
-        stringifyDates
-      );
-      const document = {
-        ...result,
-        data: JSON.parse(resultDataWithDatesStringified),
-      };
-
-      return {
-        frontmatter: document.data,
-        markdownBody: document.content,
-        slug,
-      };
-    });
-    return data;
-  })(require.context("../content/posts", true, /\.md$/));
+  const projects = getProjects();
 
   return {
     props: {
       posts,
+      projects,
       title: configData.default.title,
       description: configData.default.description,
     },
