@@ -12,7 +12,6 @@ export function Hero({ className, title, description, ...props }) {
       <div className="hero__inner container">
         <div className="hero__text">
           <h1 className="title">{title}</h1>
-          <p className="description">{description}</p>
         </div>
         <div className="hero__image" aria-hidden>
           {/*      <HomeCaskSvg /> */}
@@ -32,6 +31,15 @@ export default styled(Hero)`
     height: 100%;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .hero__text {
+    .title {
+      font-size: 82px;
+      font-family: var(--font-serif);
+      font-weight: normal;
+      font-style: normal;
+    }
   }
 
   .hero__image {

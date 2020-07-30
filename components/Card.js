@@ -47,7 +47,7 @@ export default styled(Card)`
   }
 
   .card__image-container {
-    background: #ccc;
+    background: #fff;
     order: -1;
   }
 `;

@@ -49,8 +49,10 @@ export default styled(HeaderComponent)`
 
     a {
       display: flex;
-      align-items: center;
       color: var(--text-color, black);
+      &:not(.site-logo-link) {
+        align-items: center;
+      }
     }
 
     ul {

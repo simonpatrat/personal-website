@@ -6,13 +6,10 @@ import Hero from "components/Hero";
 import { getPosts } from "lib/utils/posts";
 import { getProjects } from "lib/utils/projects";
 
-const Index = ({ title, description, posts, projects, ...props }) => {
+const Index = ({ title, subtitle, description, posts, projects, ...props }) => {
   return (
-    <Layout pageTitle={title}>
-      <Hero
-        title="Frontend Web Developer"
-        description="React, Node, and all the things"
-      />
+    <Layout pageTitle={title} pageSubtitle={subtitle}>
+      <Hero title="React, Node, and all the things" />
       <main>
         {/*         <PostList posts={posts} /> */}
         <ProjectList projects={projects} />
@@ -35,6 +32,7 @@ export async function getStaticProps() {
       posts,
       projects,
       title: configData.default.title,
+      subtitle: configData.default.subtitle,
       description: configData.default.description,
     },
   };
