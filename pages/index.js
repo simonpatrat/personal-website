@@ -1,7 +1,7 @@
 import matter from "gray-matter";
-import Layout from "../components/Layout";
-import PostList from "../components/PostList";
-import { stringifyDates } from "../lib/utils/stringifyDates";
+import Layout from "components/Layout";
+import PostList from "components/PostList";
+import { stringifyDates } from "lib/utils/stringifyDates";
 
 const Index = ({ title, description, posts, ...props }) => {
   return (
