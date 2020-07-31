@@ -1,6 +1,19 @@
 import classnames from "classnames";
 import styled from "styled-components";
 
+import AnimatedTextList from "components/AnimatedTextList";
+
+const technologies = [
+  "React",
+  "Node.js",
+  "Next.js",
+  "Redux",
+  "sass",
+  "css-in-js",
+  "Express.js",
+  "Webpack",
+];
+
 import MaGanache from "../public/img/maganache-4.svg";
 
 export function Hero({ className, title, description, ...props }) {
@@ -10,7 +23,10 @@ export function Hero({ className, title, description, ...props }) {
     <div className={heroClassNames}>
       <div className="hero__inner container">
         <div className="hero__text">
-          <h1 className="title">{title}</h1>
+          <h1 className="title">
+            {title}
+            <AnimatedTextList texts={technologies} />
+          </h1>
         </div>
         <div className="hero__image" aria-hidden>
           <MaGanache />

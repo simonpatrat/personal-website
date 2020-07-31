@@ -19,7 +19,7 @@ const Index = ({
   return (
     <Layout pageTitle={title} pageSubtitle={subtitle}>
       {/*       <Hero title="React, Node, and all the things" /> */}
-      <Hero title="Je développe des applications web avec React" />
+      <Hero title="Je développe des applications web avec " />
       <main>
         <CompanyLogoList companies={companiesLogos} />
         <ProjectList projects={projects} />
