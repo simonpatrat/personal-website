@@ -1,7 +1,6 @@
 import classnames from "classnames";
 import styled from "styled-components";
 
-import HomeCaskSvg from "../public/img/home-cask.svg";
 import MaGanache from "../public/img/maganache-4.svg";
 
 export function Hero({ className, title, description, ...props }) {
@@ -14,8 +13,7 @@ export function Hero({ className, title, description, ...props }) {
           <h1 className="title">{title}</h1>
         </div>
         <div className="hero__image" aria-hidden>
-          {/*      <HomeCaskSvg /> */}
-          <MaGanache></MaGanache>
+          <MaGanache />
         </div>
       </div>
     </div>
@@ -24,6 +22,7 @@ export function Hero({ className, title, description, ...props }) {
 
 export default styled(Hero)`
   height: calc(60vh - var(--header-height) - 92px * 1.73);
+  min-height: 450px;
   position: relative;
 
   .hero__inner {
@@ -31,6 +30,7 @@ export default styled(Hero)`
     height: 100%;
     align-items: center;
     justify-content: space-between;
+    background: url("img/triangle.svg") no-repeat bottom right;
   }
 
   .hero__text {

@@ -36,6 +36,10 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Kanit:ital,wght@0,400;1,900&display=swap"
             rel="stylesheet"
           />
+          <link
+            rel="stylesheet"
+            href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          />
         </Head>
         <body>
           <Main />

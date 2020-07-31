@@ -4,9 +4,11 @@ import styled from "styled-components";
 
 export function Card({
   className,
-  linkPathname,
+  linkHref,
+  projectname,
   imageSrc,
   title,
+  subTitle,
   type,
   ...props
 }) {
@@ -16,8 +18,8 @@ export function Card({
   return (
     <div className={cardClassNames}>
       <div className="card__content">
-        {linkPathname ? (
-          <Link href={{ pathname: linkPathname }}>
+        {linkHref ? (
+          <Link href={linkHref} as={`/project/${projectname}`}>
             <a>
               <h3>{title}</h3>
             </a>
@@ -25,6 +27,7 @@ export function Card({
         ) : (
           <h3>{title}</h3>
         )}
+        {!!subTitle && <p>{subTitle}</p>}
       </div>
       <div className="card__image-container">
         {imageSrc && (
@@ -41,6 +44,17 @@ export default styled(Card)`
   box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
+  transition: all 300ms ease;
+
+  a {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 300%;
+      height: 300%;
+    }
+  }
 
   .card__content {
     padding: 16px;
@@ -49,5 +63,9 @@ export default styled(Card)`
   .card__image-container {
     background: #fff;
     order: -1;
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 5px 0 rgba(0, 0, 0, 0.4);
   }
 `;

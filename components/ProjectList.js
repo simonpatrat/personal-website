@@ -19,14 +19,16 @@ export function ProjectList({ projects, className, ...props }) {
                 projects.map((project) => {
                   const { frontmatter, slug } = project;
 
-                  const { title, featuredImage } = frontmatter;
-
+                  const { title, subTitle, featuredImage } = frontmatter;
+                  console.log(project);
                   return (
                     <li className="col-xs-6" key={slug}>
                       <Card
-                        linkPathname={`/project/${project.slug}`}
+                        linkHref={`/project/[projectname]`}
+                        projectname={project.slug}
                         imageSrc={featuredImage}
                         title={title}
+                        subTitle={subTitle}
                         type="project"
                       />
                     </li>

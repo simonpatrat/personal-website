@@ -1,5 +1,4 @@
 import Layout from "components/Layout";
-// import PostList from "components/PostList";
 import ProjectList from "components/ProjectList";
 import Hero from "components/Hero";
 
@@ -9,9 +8,9 @@ import { getProjects } from "lib/utils/projects";
 const Index = ({ title, subtitle, description, posts, projects, ...props }) => {
   return (
     <Layout pageTitle={title} pageSubtitle={subtitle}>
-      <Hero title="React, Node, and all the things" />
+      {/*       <Hero title="React, Node, and all the things" /> */}
+      <Hero title="Je développe des applications web avec React" />
       <main>
-        {/*         <PostList posts={posts} /> */}
         <ProjectList projects={projects} />
       </main>
     </Layout>
