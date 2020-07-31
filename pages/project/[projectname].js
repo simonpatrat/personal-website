@@ -20,9 +20,8 @@ export default function PortfolioProject({
             <Link href="/">
               <a>Back to post list</a>
             </Link>
-            <article>
+            <article className="project-article">
               <h1>{frontmatter.title}</h1>
-              <p>By {frontmatter.author}</p>
               <div>
                 <ReactMarkdown source={markdownBody} />
               </div>

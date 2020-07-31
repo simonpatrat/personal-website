@@ -1,6 +1,9 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Header from "./Header";
 import Footer from "./Footer";
+
+import { HEADER_BASE_HEIGHT_PX } from "lib/constants";
 
 export default function Layout({
   children,
@@ -8,6 +11,24 @@ export default function Layout({
   pageSubTitle,
   ...props
 }) {
+  const [scrollY, setScrollY] = useState(0);
+
+  function logit() {
+    setScrollY(window.pageYOffset);
+  }
+
+  useEffect(() => {
+    function watchScroll() {
+      window.addEventListener("scroll", logit);
+    }
+    watchScroll();
+    return () => {
+      window.removeEventListener("scroll", logit);
+    };
+  }, [scrollY]);
+
+  const headerIsScrolled = scrollY > HEADER_BASE_HEIGHT_PX;
+
   return (
     <>
       <Head>
@@ -15,7 +36,7 @@ export default function Layout({
         <title>{pageTitle}</title>
       </Head>
       <div className="layout">
-        <Header />
+        <Header isScrolled={headerIsScrolled} />
         <div className="content">{children}</div>
       </div>
       <Footer />

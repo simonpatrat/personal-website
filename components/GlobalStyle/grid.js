@@ -19,9 +19,6 @@ export const gridStyles = css`
     --container-sm: calc(var(--sm-min) + var(--gutter-width));
     --container-md: calc(var(--md-min) + var(--gutter-width));
     --container-lg: calc(var(--lg-min) + var(--gutter-width));
-    --sm-viewport: only screen and (min-width: 48em);
-    --md-viewport: only screen and (min-width: 64em);
-    --lg-viewport: only screen and (min-width: 75em);
   }
 
   .container-fluid,
@@ -246,7 +243,7 @@ export const gridStyles = css`
     order: 1;
   }
 
-  @media (--sm-viewport) {
+  @media only screen and (min-width: 48em) {
     .container {
       width: var(--container-sm, 46rem);
     }
@@ -441,7 +438,7 @@ export const gridStyles = css`
     }
   }
 
-  @media (--md-viewport) {
+  @media only screen and (min-width: 64em) {
     .container {
       width: var(--container-md, 61rem);
     }
@@ -636,7 +633,7 @@ export const gridStyles = css`
     }
   }
 
-  @media (--lg-viewport) {
+  @media only screen and (min-width: 75em) {
     .container {
       width: var(--container-lg, 71rem);
     }

@@ -3,6 +3,11 @@ import { createGlobalStyle } from "styled-components";
 import { gridStyles } from "./grid";
 import { normalizedStyles } from "./normalize";
 
+import {
+  HEADER_BASE_HEIGHT_PX,
+  HEADER_SCROLLED_HEIGHT_PX,
+} from "lib/constants";
+
 export const GlobalStyle = createGlobalStyle`
 
   ${normalizedStyles}
@@ -17,10 +22,27 @@ export const GlobalStyle = createGlobalStyle`
         --color-text: ${colors.text};
         --font-serif: 'Alegreya', serif;
         --font-sans: 'Kanit', sans-serif;
-        --header-height: 120px;
+        --header-height: ${HEADER_BASE_HEIGHT_PX}px;
+        --header-height-scrolled: ${HEADER_SCROLLED_HEIGHT_PX}px;
+        --font-size-big-title: 92px;
+        --font-size-hero-text: 82px;
       }
     `;
   }};
+
+  @media (max-width: 1200px) {
+      :root {
+        --font-size-big-title: 62px;
+        --font-size-hero-text: 62px;
+      }
+  }
+
+  @media (max-width: 680px) {
+      :root {
+        --font-size-big-title: 42px;
+        --font-size-hero-text: 32px;
+      }
+  }
 
 
   html,
@@ -38,12 +60,15 @@ export const GlobalStyle = createGlobalStyle`
 
   .section {
     &__title {
-      font-size: 92px;
+      font-size: var(--font-size-big-title, 92px);
       text-align: right;
     }
 
     &:nth-of-type(2n) {
-      text-align: left;
+
+      &__title {
+        text-align: left;
+      }
     }
   }
 
@@ -74,5 +99,9 @@ export const GlobalStyle = createGlobalStyle`
 
   .layout {
     padding-top: var(--header-height);
+  }
+
+  .project-article {
+    line-height: 1.4;
   }
 `;

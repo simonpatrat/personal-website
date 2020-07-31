@@ -31,11 +31,15 @@ export default styled(Hero)`
     align-items: center;
     justify-content: space-between;
     background: url("img/triangle.svg") no-repeat bottom right;
+
+    @media (max-width: 680px) {
+      flex-direction: column;
+    }
   }
 
   .hero__text {
     .title {
-      font-size: 82px;
+      font-size: var(--font-size-hero-text, 82px);
       font-family: var(--font-serif);
       font-weight: normal;
       font-style: normal;
@@ -48,6 +52,11 @@ export default styled(Hero)`
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
+
+    @media (max-width: 680px) {
+      width: 100%;
+      height: 60%;
+    }
 
     svg {
       fill: black;

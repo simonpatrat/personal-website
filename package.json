@@ -21,6 +21,7 @@
     "gray-matter": "^4.0.2",
     "lodash": "^4.17.19",
     "next": "9.5.0",
+    "next-images": "^1.4.1",
     "plop": "^2.6.0",
     "prop-types": "^15.7.2",
     "raw-loader": "^4.0.1",

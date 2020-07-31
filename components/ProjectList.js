@@ -12,7 +12,7 @@ export function ProjectList({ projects, className, ...props }) {
           <div className="col-xs">
             {!projects && <div>No projects!</div>}
             <div className="section__header">
-              <h2 className="section__title">Work</h2>
+              <h2 className="section__title">Projets</h2>
             </div>
             <ul className="row">
               {projects &&
@@ -20,9 +20,9 @@ export function ProjectList({ projects, className, ...props }) {
                   const { frontmatter, slug } = project;
 
                   const { title, subTitle, featuredImage } = frontmatter;
-                  console.log(project);
+
                   return (
-                    <li className="col-xs-6" key={slug}>
+                    <li className="col-xs-12 col-sm-6" key={slug}>
                       <Card
                         linkHref={`/project/[projectname]`}
                         projectname={project.slug}
@@ -46,5 +46,8 @@ export default styled(ProjectList)`
   ul {
     list-style: none;
     padding: 0;
+    li {
+      margin-bottom: 16px;
+    }
   }
 `;
