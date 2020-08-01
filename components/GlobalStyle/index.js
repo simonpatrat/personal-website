@@ -123,9 +123,9 @@ export const GlobalStyle = createGlobalStyle`
     display: inline-block;
     background: var(--color-accent);
     color: #000;
-    padding: 14px 12px;
-    border-radius: 20px;
-    box-shadow: 2px 2px 10px 0 rgba(0,0,0,0.2);
+    padding: 14px 16px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px 0 rgba(0,0,0,0.2);
     transition: all 300ms ease;
     border: none;
 
