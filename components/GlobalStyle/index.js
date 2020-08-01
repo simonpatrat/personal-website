@@ -6,6 +6,7 @@ import { normalizedStyles } from "./normalize";
 import {
   HEADER_BASE_HEIGHT_PX,
   HEADER_SCROLLED_HEIGHT_PX,
+  FOOTER_HEIGHT_PX,
 } from "lib/constants";
 
 export const GlobalStyle = createGlobalStyle`
@@ -20,10 +21,14 @@ export const GlobalStyle = createGlobalStyle`
       :root {
         --color-primary: ${colors.primary};
         --color-text: ${colors.text};
+        --color-link: ${colors.link};
+        --color-accent: ${colors.accent};
+        --color-secondary: ${colors.secondary};
         --font-serif: 'Alegreya', serif;
         --font-sans: 'Kanit', sans-serif;
         --header-height: ${HEADER_BASE_HEIGHT_PX}px;
         --header-height-scrolled: ${HEADER_SCROLLED_HEIGHT_PX}px;
+        --footer-height: ${FOOTER_HEIGHT_PX}px;
         --font-size-big-title: 92px;
         --font-size-hero-text: 82px;
       }
@@ -87,7 +92,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: var(--color-primary);
+    color: var(--color-link);
     text-decoration: none;
   }
 
@@ -110,5 +115,28 @@ export const GlobalStyle = createGlobalStyle`
   p {
     line-height: 1.4;
     font-size: 1rem;
+  }
+
+  button,
+  button,
+  a.button {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #000;
+    padding: 14px 12px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px 0 rgba(0,0,0,0.2);
+    transition: all 300ms ease;
+    border: none;
+
+    &:hover {
+      background: var(--color-accent);
+      box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
+    }
+
+    &:focus {
+      background: var(--color-accent);
+      box-shadow: 0px 0px 0px rgba(0,0,0,0);
+    }
   }
 `;

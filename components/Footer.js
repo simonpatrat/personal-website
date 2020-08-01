@@ -36,7 +36,12 @@ export function Footer({ className, ...props }) {
                   </a>
                 </li>
               </ul>
-              <div>Fait avec {"\u{1F69C}"} @ Montréal</div>
+              <div className="footer__information">
+                <p className="copyright">
+                  &copy; Simon Patrat - 2020 - {"\u{1F69C}"}
+                </p>
+                <p>Fait avec Next.js @Montréal</p>
+              </div>
             </div>
           </div>
         </div>
@@ -46,12 +51,12 @@ export function Footer({ className, ...props }) {
 }
 
 export default styled(Footer)`
-  --footer-height: 300px;
-
   min-height: var(--footer-height);
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 120px;
+  border: 1px solid #eee;
 
   .footer__inner {
     width: 100%;

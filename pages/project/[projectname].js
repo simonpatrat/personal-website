@@ -21,9 +21,9 @@ export function PortfolioProject({
       <div className="container">
         <div className="row">
           <div className="col-xs">
-            <Link href="/">
-              <a>Back to projects list</a>
-            </Link>
+            {/*             <Link href="/">
+              <a className="button">Back to projects list</a>
+            </Link> */}
             <article className="project-article">
               <div className="row middle-md start-md">
                 <div className="col-xs-12 col-md-4">
@@ -48,10 +48,6 @@ export function PortfolioProject({
 }
 
 export default styled(PortfolioProject)`
-  .project-article {
-    min-height: 80vh;
-  }
-
   .project-article__image {
     margin: 32px 32px 32px 0;
     border-radius: 10px;

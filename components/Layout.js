@@ -6,8 +6,9 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 import { HEADER_BASE_HEIGHT_PX } from "lib/constants";
+import styled from "styled-components";
 
-export default function Layout({
+export function Layout({
   children,
   className,
   pageTitle,
@@ -47,3 +48,9 @@ export default function Layout({
     </>
   );
 }
+
+export default styled(Layout)`
+  min-height: calc(
+    100vh - var(--footer-height, 300px) - var(--header-height, 120px)
+  );
+`;

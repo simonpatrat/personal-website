@@ -47,7 +47,7 @@ export default styled(Hero)`
     height: 100%;
     align-items: center;
     justify-content: space-between;
-    background: url("./img/triangle.svg") no-repeat bottom right;
+    background: url("/img/triangle.svg") no-repeat bottom right;
 
     @media (max-width: 680px) {
       flex-direction: column;

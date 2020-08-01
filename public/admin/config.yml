@@ -121,6 +121,7 @@ collections:
           valueField: "name",
           multiple: true,
         }
+      - { label: "Key features", name: "keyFeatures", widget: "list", required: false }
   - name: "technology"
     identifier_field: name
     label: "Technology"
