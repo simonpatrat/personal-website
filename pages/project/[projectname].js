@@ -173,7 +173,7 @@ export default styled(PortfolioProject)`
     .project-links-wrapper {
       display: flex;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: flex-end;
 
       .button {
         margin: 16px;
