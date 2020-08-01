@@ -17,13 +17,15 @@ keyFeatures:
   - Géolocalisation
   - Extraction des couleurs des images
 ---
-Mon projet était de partager des photos prises à différents endroits du monde et surtout au Canada.\
-\
-J'ai ensuite trouvé intéressant d'essayer d'extraire les données exif des photos afin de pouvoir récupérer les coordonnées GPS et les infos colorimétriques.
+Mon projet était de partager des photos prises à différents endroits du monde et surtout au Canada.
+
+J'ai ensuite trouvé intéressant d'essayer d'extraire les [données exif](https://fr.wikipedia.org/wiki/Exchangeable_image_file_format) des photos afin de pouvoir récupérer les coordonnées GPS et les infos colorimétriques.
 
 Grâce à ça l'endroit précis où la photo à été prise s'affiche sur une carte et la palette des couleurs dominantes de la photo s'affiche aussi et sert à redéfinir la couleur principale du site à chaque changement de photo.
 
-Au début les données étaient extraites des images côté client, au runtime, mais comme le site est un site statique utilisant le SSG de Next.js et que les images sont hébergées par **cloudinary** j'ai trouvé plus optimal de créer un script qui extrait les données lors du build, les informations sont donc déjà présentes au premier chargement.
+Au début les données étaient extraites des images côté client, au runtime, mais comme le site est un site statique utilisant [le SSG de Next.js](https://nextjs.org/docs/advanced-features/static-html-export) et que les images sont hébergées par **cloudinary** j'ai trouvé plus optimal de créer un script qui extrait les données lors du build, les informations sont donc déjà présentes au premier chargement.
+
+
 
 ![Places website home page capture](https://res.cloudinary.com/dmcl9xqto/image/upload/c_scale,w_1280/v1596309208/website/places-home_zee6kl.png "Places website home page capture")
 
