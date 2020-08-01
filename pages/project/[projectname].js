@@ -55,18 +55,24 @@ export function PortfolioProject({
                     <p className="project-article__description">{subTitle}</p>
                     <div className="row">
                       <div className="col-xs-12 col-md-6">
-                        {frontmatter.keyFeatures && (
-                          <div className="key-features">
-                            <p className="key-features__title">
-                              Principales fonctionalités:
-                            </p>
-                            <ul className="key-features__list">
-                              {frontmatter.keyFeatures.map((feature, index) => (
-                                <li key={`${feature}#${index}`}>{feature}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
+                        {frontmatter.keyFeatures &&
+                          frontmatter.keyFeatures.length > 0 &&
+                          !!frontmatter.keyFeatures[0] && (
+                            <div className="key-features">
+                              <p className="key-features__title">
+                                Principales fonctionalités:
+                              </p>
+                              <ul className="key-features__list">
+                                {frontmatter.keyFeatures.map(
+                                  (feature, index) => (
+                                    <li key={`${feature}#${index}`}>
+                                      {feature}
+                                    </li>
+                                  )
+                                )}
+                              </ul>
+                            </div>
+                          )}
                       </div>
                       <div className="col-xs-12 col-md-6">
                         <div className="project-links-wrapper">
