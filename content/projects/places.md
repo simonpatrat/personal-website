@@ -27,7 +27,7 @@ Au début les données étaient extraites des images côté client, au runtime, 
 
 ![Places website home page capture](https://res.cloudinary.com/dmcl9xqto/image/upload/c_scale,w_1280/v1596309208/website/places-home_zee6kl.png "Places website home page capture")
 
-![Places website photo page](https://res.cloudinary.com/dmcl9xqto/image/upload/v1596309207/website/places-photo-page_psp6am.png "Places website photo page")
+![Places website photo page](https://res.cloudinary.com/dmcl9xqto/image/upload/c_crop/v1596309207/website/places-photo-page_psp6am.png "Places website photo page")
 
 ![Places website home page on small screen capture](https://res.cloudinary.com/dmcl9xqto/image/upload/v1596309210/website/places-small-screen_s3g85c.png "Places website home page on small screen capture")
 
