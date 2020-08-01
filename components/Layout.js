@@ -32,7 +32,9 @@ export function Layout({
   }, [scrollY]);
 
   const headerIsScrolled = scrollY > HEADER_BASE_HEIGHT_PX;
-  const layoutClassNames = classnames("layout", className);
+  const layoutClassNames = classnames("layout", className, {
+    scrolled: headerIsScrolled,
+  });
 
   return (
     <>

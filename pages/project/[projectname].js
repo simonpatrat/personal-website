@@ -44,7 +44,7 @@ export function PortfolioProject({
             </Link> */}
             <article className="project-article">
               <div className="row middle-md start-md">
-                <div className="col-xs-12 col-md-4">
+                <div className="col-xs-12 col-md-4 project-article__image-wrapper">
                   <div className="project-article__image">
                     <img src={featuredImage} alt={title} />
                   </div>
@@ -108,7 +108,7 @@ export function PortfolioProject({
               <div className="row">
                 <div className="col-md-4"></div>
                 <div className="col-md-8">
-                  <div className="project-article__body">
+                  <div className="project-article__body page-body">
                     <ReactMarkdown
                       source={markdownBody}
                       renderers={{
@@ -127,11 +127,16 @@ export function PortfolioProject({
 }
 
 export default styled(PortfolioProject)`
+  .project-article__image-wrapper {
+    position: relative;
+  }
+
   .project-article__image {
     margin: 32px 32px 32px 0;
     border-radius: 10px;
     border: 16px solid #eee;
     background: #fff;
+    transition: all 300ms ease;
   }
 
   .project-article__description {
@@ -177,21 +182,6 @@ export default styled(PortfolioProject)`
   }
 
   .project-article__body {
-    a {
-      text-decoration: underline;
-      font-weight: bold;
-      transition: all 300ms ease;
-
-      &:hover {
-        opacity: 0.8;
-      }
-
-      &:focus {
-        color: var(--color-secondary);
-        opacity: 1;
-      }
-    }
-
     .image-wrapper {
       display: block;
       margin: 64px auto;

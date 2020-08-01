@@ -139,4 +139,21 @@ export const GlobalStyle = createGlobalStyle`
       box-shadow: 0px 0px 0px rgba(0,0,0,0);
     }
   }
+
+  .page-body {
+    a {
+      text-decoration: underline;
+      font-weight: bold;
+      transition: all 300ms ease;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:focus {
+        color: var(--color-secondary);
+        opacity: 1;
+      }
+    }
+  }
 `;
