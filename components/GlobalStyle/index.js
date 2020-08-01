@@ -50,12 +50,18 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-family: var(--font-sans);
+    font-size: 16px;
   }
 
   h1,h2,h3,h4,h5,h6 {
     font-family: var(--font-sans);
     font-weight: 900;
     font-style: italic;
+  }
+
+  .big-title {
+    font-size: var(--font-size-big-title, 92px);
+    letter-spacing: 1px;
   }
 
   .section {
@@ -101,7 +107,8 @@ export const GlobalStyle = createGlobalStyle`
     padding-top: var(--header-height);
   }
 
-  .project-article {
+  p {
     line-height: 1.4;
+    font-size: 1rem;
   }
 `;

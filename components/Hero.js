@@ -5,13 +5,14 @@ import AnimatedTextList from "components/AnimatedTextList";
 
 const technologies = [
   "React",
-  "Node.js",
-  "Next.js",
   "Redux",
+  "Node.js",
+  "Typescript",
+  "Next.js",
   "sass",
   "css-in-js",
-  "Express.js",
   "Webpack",
+  "Express.js",
 ];
 
 import MaGanache from "../public/img/maganache-4.svg";
@@ -46,7 +47,7 @@ export default styled(Hero)`
     height: 100%;
     align-items: center;
     justify-content: space-between;
-    background: url("img/triangle.svg") no-repeat bottom right;
+    background: url("./img/triangle.svg") no-repeat bottom right;
 
     @media (max-width: 680px) {
       flex-direction: column;

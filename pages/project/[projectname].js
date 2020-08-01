@@ -4,24 +4,38 @@ import ReactMarkdown from "react-markdown";
 
 import Layout from "components/Layout";
 import { stringifyDates } from "lib/utils/stringifyDates";
+import styled from "styled-components";
 
-export default function PortfolioProject({
+export function PortfolioProject({
   siteTitle,
   frontmatter,
   markdownBody,
+  className,
 }) {
   if (!frontmatter) return <></>;
 
+  const { title, subTitle, featuredImage } = frontmatter;
+
   return (
-    <Layout pageTitle={`${siteTitle} | ${frontmatter.title}`}>
+    <Layout pageTitle={`${siteTitle} | ${title}`} className={className}>
       <div className="container">
         <div className="row">
           <div className="col-xs">
             <Link href="/">
-              <a>Back to post list</a>
+              <a>Back to projects list</a>
             </Link>
             <article className="project-article">
-              <h1>{frontmatter.title}</h1>
+              <div className="row middle-md start-md">
+                <div className="col-xs-12 col-md-4">
+                  <div className="project-article__image">
+                    <img src={featuredImage} alt={title} />
+                  </div>
+                </div>
+                <div className="col-sm-12 col-md-8">
+                  <h1 className="big-title">{frontmatter.title}</h1>
+                  <p className="project-article__description">{subTitle}</p>
+                </div>
+              </div>
               <div>
                 <ReactMarkdown source={markdownBody} />
               </div>
@@ -32,6 +46,23 @@ export default function PortfolioProject({
     </Layout>
   );
 }
+
+export default styled(PortfolioProject)`
+  .project-article {
+    min-height: 80vh;
+  }
+
+  .project-article__image {
+    margin: 32px 32px 32px 0;
+    border-radius: 10px;
+    border: 16px solid #eee;
+    background: #fff;
+  }
+
+  .project-article__description {
+    font-size: 2rem;
+  }
+`;
 
 export async function getStaticProps({ ...ctx }) {
   const { projectname } = ctx.params;
