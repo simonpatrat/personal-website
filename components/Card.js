@@ -45,14 +45,18 @@ export default styled(Card)`
   display: flex;
   flex-direction: column;
   transition: all 300ms ease;
+  position: relative;
 
   a {
-    position: relative;
     &:before {
       content: "";
       position: absolute;
-      width: 300%;
-      height: 300%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
     }
   }
 
