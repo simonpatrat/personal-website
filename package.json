@@ -19,7 +19,7 @@
     "cloudinary-core": "^2.8.2",
     "dotenv": "^8.2.0",
     "gray-matter": "^4.0.2",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "next": "9.5.0",
     "next-images": "^1.4.1",
     "plop": "^2.6.0",
